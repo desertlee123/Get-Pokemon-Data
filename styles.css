@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap");
+
+:root {
+  --spacing: 5px
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Overpass", sans-serif;
+}
+
+body {
+  padding-top: 5em;
+}
+
+@media screen and (max-width: 990px) {
+  body {
+    padding-bottom: 3em;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .container {
+    width: 95%;
+  }
+}
+
+.form__field {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 2em;
+}
+
+@media screen and (max-width: 990px) {
+  .form__field {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form__button {
+  border-radius: 5rem;
+}
+
+@media screen and (max-width: 990px) {
+  .form__button {
+    margin-top: 1em;
+  }
+}
+
+.form__error {
+  display: none;
+  margin-top: 0;
+  padding-left: 3.3em;
+  font-style: italic;
+  letter-spacing: 3px;
+  color: lightcoral;
+}
+
+@media screen and (max-width: 990px) {
+  .form__error {
+    grid-row-start: 2;
+  }
+}
+
+.form__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 80%;
+}
+
+.form__item {
+  cursor: pointer;
+}
+
+.form__item--hidden {
+  display: none;
+}
+
+.card {
+  width: 60%;
+  margin: 0 auto;
+  padding: 30px;
+  text-align: center;
+}
+
+@media screen and (max-width: 990px) {
+  .card {
+    width: 100%;
+  }
+}
+
+.card__img-container {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #24333e;
+}
+
+@media screen and (max-width: 990px) {
+  .card__img-container {
+    width: 200px;
+    height: 200px;
+    padding: 35px;
+  }
+}
+
+.card__hp {
+  font-size: 1rem;
+  opacity: 0.5;
+}
+
+.card__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 20px;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 990px) {
+  .card__list {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+  }
+}
+
+.card__item {
+  list-style: none;
+  padding: 10px 0;
+  border-radius: .5rem;
+  background-color: #18232c;
+}
+
+@media screen and (max-width: 990px) {
+  .card__item {
+    display: flex;
+    flex-direction: column;
+  }
+}
