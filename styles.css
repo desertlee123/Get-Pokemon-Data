@@ -82,6 +82,7 @@ body {
   margin: 0 auto;
   padding: 30px;
   text-align: center;
+  background-color: #141e26;
 }
 
 @media screen and (max-width: 990px) {
