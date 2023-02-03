@@ -31,7 +31,6 @@ const showError = () => {
   $submitButton.removeAttribute("aria-busy");
   $submitButton.removeAttribute("disabled");
   const message = `
-    <h4>Error: 404</h4>
     <h5>Oops! it seems that pokemon does not exist</h5>
   `;
   $card.innerHTML = message;
