@@ -8,9 +8,10 @@ const $errorMessage = $("error-message");
 
 const getPokemonData = async (pokemon) => {
   try {
+    const regExp = /[a-zA-Z]/gi;
+    pokemon.match(regExp).join("");
     const URL = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
     const response = await fetch(URL);
-    if (!response.ok) throw new Error(response.status);
     const data = await response.json();
     return {
       img: data?.sprites?.other?.dream_world?.front_default,
@@ -22,15 +23,15 @@ const getPokemonData = async (pokemon) => {
       special: data?.stats[3]?.base_stat,
     };
   } catch (error) {
-    showError(error);
+    showError();
   }
 };
 
-const showError = (error) => {
+const showError = () => {
   $submitButton.removeAttribute("aria-busy");
   $submitButton.removeAttribute("disabled");
   const message = `
-    <h4>${error}</h4>
+    <h4>Error: 404</h4>
     <h5>Oops! it seems that pokemon does not exist</h5>
   `;
   $card.innerHTML = message;
@@ -44,12 +45,14 @@ $form.addEventListener("submit", (e) => {
     $errorMessage.style.display = "none";
     $submitButton.setAttribute("aria-busy", true);
     $submitButton.setAttribute("disabled", true);
-    getPokemonData($form.search.value.toLowerCase().trim()).then((data) => {
-      showPokemonData(data);
-      $submitButton.removeAttribute("aria-busy");
-      $submitButton.removeAttribute("disabled");
-      $form.search.value = "";
-    });
+    getPokemonData($form.search.value.toLowerCase().trim())
+      .then((data) => {
+        showPokemonData(data);
+        $submitButton.removeAttribute("aria-busy");
+        $submitButton.removeAttribute("disabled");
+        $form.search.value = "";
+      })
+      .catch((error) => error);
   }
 });
 
